@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome to FreshCuts</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500&display=swap" rel="stylesheet">
+    <style>
+        /* Add custom CSS styles here */
+        body {
+            font-family: 'Roboto', sans-serif;
+            background-color: #f0f0f0;
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            background-color: #333;
+            color: #fff;
+            padding: 1rem 0;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+        }
+
+        nav li {
+            margin: 0 1rem;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: #fff;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        nav a:hover {
+            color: #007bff;
+        }
+
+        .hero {
+            text-align: center;
+            padding: 4rem 0;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            color: #555;
+        }
+
+        .btn {
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: 500;
+            transition: background-color 0.3s ease;
+        }
+
+        .btn:hover {
+            background-color: #0056b3;
+        }
+
+        .about, .contact {
+            text-align: center;
+            padding: 2rem;
+        }
+
+        footer {
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+            padding: 1rem 0;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="/">Home</a></li>
+                <li><a href="/services">Services</a></li>
+                <li><a href="/about">About Us</a></li>
+                <li><a href="/contact">Contact</a></li>
+                <li><a href="/login">Login</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="hero">
+        <h1>Welcome to FreshCuts</h1>
+        <p>Your one-stop destination for all your haircut needs.</p>
+        <a href="/services" class="btn">View Services</a>
+    </section>
+
+    <section class="about">
+        <h2>About Us</h2>
+        <p>
+            At FreshCuts, we take pride in providing top-notch haircut and grooming services.
+            Our experienced stylists are dedicated to delivering the perfect look that suits your style.
+            Nulla consectetur orci vel tellus vehicula. Proin eget libero eros. Etiam fringilla augue eu sapien facilisis.
+        </p>
+    </section>
+
+    <section class="contact">
+        <h2>Contact Us</h2>
+        <p>
+            If you have any questions or need assistance, our team is here to help.
+            Feel free to reach out to us via phone, email, or by visiting one of our convenient locations.
+            We look forward to serving you and ensuring your satisfaction.
+        </p>
+        <a href="/contact" class="btn">Contact Us</a>
+    </section>
+
+    <footer>
+        <p>&copy; {{ current_year }} FreshCuts</p>
+    </footer>
+</body>
+</html>

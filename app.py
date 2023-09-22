@@ -76,6 +76,11 @@ def login():
 
     return render_template('login.html')
 
+# Route for homepage.
+@app.route('/home')
+def home():
+    return "Welcome to the home page!"
+
 # Route for user logout.
 @app.route('/logout')
 def logout():
@@ -83,6 +88,12 @@ def logout():
     session.clear()
     flash('You have been logged out.', 'info')
     return redirect(url_for('home'))
+
+# Route for the root URL ("/") to display the "App Running" message.
+@app.route('/')
+def app_running():
+    return render_template('app_running.html')
+
 
 # ... more routes and functionality ...
 

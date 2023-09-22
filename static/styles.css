@@ -1,5 +1,5 @@
 /* Reset some default browser styles */
-body, h1, h2, h3, p, form {
+body, h1, h2, h3, p, ul, li, a {
     margin: 0;
     padding: 0;
 }
@@ -9,56 +9,68 @@ body {
     background-color: #f0f0f0;
     font-family: Arial, sans-serif;
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
-    height: 100vh;
+    min-height: 100vh;
 }
 
-/* Create a container for the content */
-.container {
-    background-color: #fff;
-    border-radius: 5px;
-    padding: 20px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+/* Navigation bar styles */
+header {
+    background-color: #333;
+    color: #fff;
+    padding: 1rem 0;
 }
 
-/* Style form elements */
-.form-group {
-    margin-bottom: 20px;
+nav ul {
+    list-style: none;
+    display: flex;
 }
 
-label {
-    display: block;
-    font-weight: bold;
+nav li {
+    margin-right: 1rem;
 }
 
-input[type="text"],
-input[type="password"] {
-    width: 100%;
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
+nav a {
+    text-decoration: none;
+    color: #fff;
 }
 
-/* Style buttons */
+/* Hero section styles */
+.hero {
+    text-align: center;
+    padding: 4rem;
+}
+
+.hero h1 {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+}
+
+.hero p {
+    font-size: 1.2rem;
+    margin-bottom: 2rem;
+}
+
 .btn {
     background-color: #007bff;
     color: #fff;
     border: none;
     padding: 10px 20px;
     border-radius: 5px;
-    cursor: pointer;
-}
-
-/* Style links */
-a {
-    color: #007bff;
     text-decoration: none;
 }
 
-/* Responsive styles */
-@media (max-width: 768px) {
-    .container {
-        width: 90%;
-    }
+/* About and Contact section styles */
+.about, .contact {
+    text-align: center;
+    padding: 2rem;
+}
+
+/* Footer styles */
+footer {
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    padding: 1rem 0;
 }
