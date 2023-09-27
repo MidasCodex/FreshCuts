@@ -1,76 +1,78 @@
-/* Reset some default browser styles */
-body, h1, h2, h3, p, ul, li, a {
+/* Reset some default styles for better consistency */
+body, h1, h2, p {
     margin: 0;
     padding: 0;
 }
 
-/* Apply a background color and center content */
+/* Apply a background color and set text color */
 body {
     background-color: #f0f0f0;
     font-family: Arial, sans-serif;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    min-height: 100vh;
+    color: #333;
 }
 
-/* Navigation bar styles */
+/* Style the header */
 header {
-    background-color: #333;
+    background-color: #4db7ff; /* Light blue */
     color: #fff;
-    padding: 1rem 0;
+    text-align: center;
+    padding: 10px 0;
+    border-bottom-left-radius: 15px;
+    border-bottom-right-radius: 15px;
+}
+
+/* Style the navigation menu */
+nav {
+    background-color: #4db7ff; /* Light blue */
+    text-align: center;
 }
 
 nav ul {
-    list-style: none;
-    display: flex;
+    list-style-type: none;
+    padding: 0;
 }
 
 nav li {
-    margin-right: 1rem;
+    display: inline;
+    margin: 0 10px;
 }
 
 nav a {
     text-decoration: none;
     color: #fff;
+    background-color: #37a2e5; /* Darker blue for buttons */
+    padding: 8px 16px;
+    border-radius: 20px;
+    transition: background-color 0.3s ease;
 }
 
-/* Hero section styles */
-.hero {
-    text-align: center;
-    padding: 4rem;
-}
-
-.hero h1 {
-    font-size: 2.5rem;
-    margin-bottom: 1rem;
-}
-
-.hero p {
-    font-size: 1.2rem;
-    margin-bottom: 2rem;
-}
-
-.btn {
-    background-color: #007bff;
+nav a:hover {
+    background-color: #4db7ff; /* Light blue on hover */
     color: #fff;
-    border: none;
-    padding: 10px 20px;
-    border-radius: 5px;
-    text-decoration: none;
 }
 
-/* About and Contact section styles */
-.about, .contact {
-    text-align: center;
-    padding: 2rem;
+/* Style the main content */
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
 }
 
-/* Footer styles */
+/* Style the "About Us" section */
+.about {
+    background-color: #fff;
+    padding: 20px;
+    margin-top: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 15px;
+}
+
+/* Style the footer */
 footer {
-    background-color: #333;
+    background-color: #4db7ff; /* Light blue */
     color: #fff;
     text-align: center;
-    padding: 1rem 0;
+    padding: 10px 0;
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
 }

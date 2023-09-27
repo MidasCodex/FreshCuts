@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="">
+<head>
+    <title>Admin Panel - My App</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <header>
+        <!-- Admin panel header content -->
+    </header>
+    <nav>
+        <!-- Admin panel navigation menu -->
+    </nav>
+    <main>
+        {% block content %}{% endblock %}
+    </main>
+    <footer>
+        <!-- Footer content specific to the admin panel -->
+    </footer>
+</body>
+</html>
