@@ -1,0 +1,36 @@
+<!-- templates/delete_user.html -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <title>Delete User</title>
+</head>
+<body>
+    <header>
+        <h1>FreshCuts Admin Dashboard</h1>
+        <nav>
+            <ul>
+                <li><a href="/admin/dashboard">Dashboard</a></li>
+                <li><a href="/logout">Logout</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="container">
+        <h2>Delete User</h2>
+
+        <p>Are you sure you want to delete the user "{{ user.username }}"?</p>
+
+        <form method="POST" action="/admin/user/{{ user.id }}/delete">
+            <button type="submit" class="btn btn-danger">Delete</button>
+        </form>
+    </div>
+
+    <footer>
+        &copy; 2023 FreshCuts. All rights reserved.
+    </footer>
+</body>
+</html>

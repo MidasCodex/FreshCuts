@@ -1,0 +1,36 @@
+<!-- view_user.html -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <title>View User</title>
+</head>
+<body>
+    <header>
+        <h1>FreshCuts Admin Dashboard</h1>
+        <nav>
+            <ul>
+                <li><a href="/admin/dashboard">Dashboard</a></li>
+                <li><a href="/admin/logout">Logout</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="container">
+        <h2>User Details</h2>
+
+        <p>Username: {{ user.username }}</p>
+        <p>ID: {{ user.id }}</p>
+
+        <a href="/admin/user/{{ user.id }}/edit" class="btn btn-secondary">Edit</a>
+        <a href="/admin/user/{{ user.id }}/delete" class="btn btn-danger">Delete</a>
+    </div>
+
+    <footer>
+        &copy; 2023 FreshCuts. All rights reserved.
+    </footer>
+</body>
+</html>

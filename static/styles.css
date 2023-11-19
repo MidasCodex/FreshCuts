@@ -1,3 +1,5 @@
+/* styles.css */
+
 /* Reset some default styles for better consistency */
 body, h1, h2, p {
     margin: 0;
@@ -75,4 +77,32 @@ footer {
     padding: 10px 0;
     border-top-left-radius: 15px;
     border-top-right-radius: 15px;
+}
+
+/* Add the following styles for buttons */
+.btn {
+    display: inline-block;
+    padding: 8px 16px;
+    margin-right: 5px;
+    text-decoration: none;
+    color: #fff;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.btn-primary {
+    background-color: #007bff;
+}
+
+.btn-secondary {
+    background-color: #6c757d;
+}
+
+.btn-danger {
+    background-color: #dc3545;
+}
+
+.btn:hover {
+    background-color: #0056b3;
 }

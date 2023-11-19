@@ -1,5 +1,7 @@
+# app.py
+
 import secrets
-from flask import Flask, render_template, request, redirect, url_for, flash, session
+from flask import Flask, render_template, request, redirect, url_for, flash, session, abort
 from flask_sqlalchemy import SQLAlchemy
 from flask_migrate import Migrate
 from werkzeug.security import generate_password_hash, check_password_hash
@@ -10,7 +12,7 @@ app = Flask(__name__)
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///mydatabase.db'
 db = SQLAlchemy(app)
 
-# Initialize Flask-Migrate with your app and db
+# Initialize Flask-Migrate with app and db
 migrate = Migrate(app, db)
 
 # Secret key for session management (replace with a secure, random key).
@@ -88,20 +90,25 @@ def login():
 def home():
     return render_template('home.html')
 
+
 # Route for aboutpage.
 @app.route('/about')
 def about():
     return render_template('about.html')
+
 
 # Route for faq.
 @app.route('/faq')
 def faq():
     return render_template('faq.html')
 
+
 # Route for faq.
 @app.route('/tos')
 def tos():
     return render_template('tos.html')
+
+
 # Route for user logout.
 @app.route('/logout')
 def logout():
@@ -169,11 +176,56 @@ def admin_login():
 @app.route('/admin/dashboard')
 def admin_dashboard():
     if 'admin_id' in session:
-        # Add logic here to oversee users or perform admin actions as needed
-        return render_template('admin_dashboard.html')
+        # Fetch all users from the database
+        users = User.query.all()
+        return render_template('admin_dashboard.html', users=users)
     else:
         flash('You need to log in as an admin to access the admin dashboard.', 'danger')
         return redirect(url_for('admin_login'))
+
+
+# Example for the view_user route
+@app.route('/admin/user/<int:user_id>/view')
+def view_user(user_id):
+    user = User.query.get(user_id)
+    if user:
+        return render_template('view_user.html', user=user)
+    else:
+        abort(404)
+
+
+# Example for the edit_user route
+@app.route('/admin/user/<int:user_id>/edit', methods=['GET', 'POST'])
+def edit_user(user_id):
+    user = User.query.get(user_id)
+    if user:
+        if request.method == 'POST':
+            # Update user details in the database
+            user.username = request.form['username']
+            db.session.commit()
+            flash('User details updated successfully.', 'success')
+            return redirect(url_for('admin_dashboard'))
+        else:
+            return render_template('edit_user.html', user=user)
+    else:
+        abort(404)
+
+
+# Example for the delete_user route
+@app.route('/admin/user/<int:user_id>/delete', methods=['GET', 'POST'])
+def delete_user(user_id):
+    user = User.query.get(user_id)
+    if user:
+        if request.method == 'POST':
+            # Delete user from the database
+            db.session.delete(user)
+            db.session.commit()
+            flash('User deleted successfully.', 'success')
+            return redirect(url_for('admin_dashboard'))
+        else:
+            return render_template('delete_user.html', user=user)
+    else:
+        abort(404)
 
 
 if __name__ == "__main__":
